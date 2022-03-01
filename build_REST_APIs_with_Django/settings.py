@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     # Custom app
     'watchlist_app.apps.WatchlistAppConfig',
     'django.contrib.admin',

@@ -4,11 +4,19 @@ from watchlist_app.api.serializers import MovieSerializer
 from watchlist_app.models import Movie
 
 
-@api_view()
+@api_view(['GET', 'POST'])
 def movie_list(request):
-    movie = Movie.objects.all()
-    serializer = MovieSerializer(movie, many=True)
-    return Response(serializer.data)
+    if request.method == "GET":
+        movie = Movie.objects.all()
+        serializer = MovieSerializer(movie, many=True)
+        return Response(serializer.data)
+
+    if request.method == "POST":
+        serializer = MovieSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            return Response(serializer.data)
 
 
 @api_view()

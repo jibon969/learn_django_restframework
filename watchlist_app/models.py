@@ -10,3 +10,6 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.name
+
+    def create(self, validated_data):
+        return Movie.objects.create(**validated_data)

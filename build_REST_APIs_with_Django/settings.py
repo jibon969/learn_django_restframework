@@ -31,9 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Rest framework
     'rest_framework',
     # Custom app
     'watchlist_app.apps.WatchlistAppConfig',
+    'movie.apps.MovieConfig',
+    # Default setting
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

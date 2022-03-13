@@ -7,7 +7,9 @@ from movie.api.views import (
     stream_plat_form_list,
     stream_plat_form_details,
     StreamPlatFormAv,
-    StreamPlatFormDetailAv
+    StreamPlatFormDetailAv,
+    ReviewList,
+    ReviewDetail
 )
 
 urlpatterns = [
@@ -26,5 +28,8 @@ urlpatterns = [
     path('stream/', StreamPlatFormAv.as_view(), name="stream-list"),
     path('stream/<int:pk>/', StreamPlatFormDetailAv.as_view(), name="stream-detail"),
 
+    # Api view
+    path('review/', ReviewList.as_view(), name="review-list"),
+    path('review/<int:pk>/', ReviewDetail.as_view(), name="review-detail"),
 
 ]

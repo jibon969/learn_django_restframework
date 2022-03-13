@@ -26,10 +26,7 @@ urlpatterns = [
 
     # Api view
     path('stream/', StreamPlatFormAv.as_view(), name="stream-list"),
-    path('stream/<int:pk>/', StreamPlatFormDetailAv.as_view(), name="stream-detail"),
-
-    # Api view
-    path('review/', ReviewList.as_view(), name="review-list"),
-    path('review/<int:pk>/', ReviewDetail.as_view(), name="review-detail"),
+    path('stream/<int:pk>/review', StreamPlatFormDetailAv.as_view(), name="stream-detail"),
+    path('stream/review/<int:pk>/', ReviewDetail.as_view(), name="review-detail"),
 
 ]

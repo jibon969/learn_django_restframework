@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class StreamPlatForm(models.Model):
     name = models.CharField(max_length=120)
@@ -21,3 +19,15 @@ class WatchList(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Review(models.Model):
+    rating = models.PositiveIntegerField()
+    description = models.CharField(max_length=120)
+    watchlist = models.ForeignKey(WatchList, on_delete=models.CASCADE, related_name="review")
+    active = models.BooleanField()
+    created = models.DateTimeField(auto_now=True)
+    update = models.DateTimeField(auto_now_add=True)
+
+
+

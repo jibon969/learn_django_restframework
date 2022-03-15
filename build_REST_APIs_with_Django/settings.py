@@ -33,9 +33,11 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Rest framework
     'rest_framework',
+    'rest_framework.authtoken',
     # Custom app
     'watchlist_app.apps.WatchlistAppConfig',
     'movie.apps.MovieConfig',
+    'user_app.apps.UserAppConfig',
     # Default setting
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,3 +131,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
